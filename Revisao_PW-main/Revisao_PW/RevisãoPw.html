@@ -1,0 +1,73 @@
+<head>
+    <title>Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<nav class="bg-neutral-600 text-white flex p-3 space-x-3"> 
+    <button>Home</button>
+    <div class="relative">
+        <div id="drop-content" class=" hidden top-8 p-2 rounded absolute bg-white text-black">
+            Hello World
+        </div>
+        <button id="dropdown">Dropdown</button>
+    </div>
+</nav>
+<div class="bg-neutral-500 h-screen grid grid-cols-3 text-white">
+    <button id="prev" class="hover:bg-neutral-400 font-bold">Previous</button>
+    <div id="content" class="flex justify-center items-center text-center text-2xl text-neutral-900">
+    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fitforum.com.br%2Fnoticias%2F7-conteudos-para-quem-quer-se-familiarizar-com-a-area-de-programacao-e-desenvolvimento%2F&psig=AOvVaw3aYMIQRTRtIQBRlwkDTlHI&ust=1645624921021000&source=images&cd=vfe&ved=0CAgQjRxqFwoTCPiZgeO8k_YCFQAAAAAdAAAAABAN" alt="Imagem de códigos">
+    </div>
+    <button id="next" class="hover:bg-neutral-400 font-bold">Next</button>
+</div>
+
+<div class="row">
+    <div class="col">
+      <figure class="figure">
+        <img src="9.-operaciones.gif" class="figure-img img-fluid rounded" alt="Matemática">
+        <figcaption class="figure-caption text-right">Matemática: Ensino Fundamental</figcaption>
+      </figure>
+   </div>
+   <div class="col" style="text-align: center;">
+    <figure class="figure">
+      <img src="matematica3-420x315.jpg" class="figure-img img-fluid rounded" alt="Matemática">
+      <figcaption class="figure-caption text-right">Matemática: Ensino Médio</figcaption>
+    </figure>
+  </div>
+  <div class="col" style="text-align: right;">
+    <figure class="figure">
+      <img src="71326file3521266529085.jpg" class="figure-img img-fluid rounded" alt="Matemática">
+      <figcaption class="figure-caption text-right">Matemática: Ensino Superior</figcaption>
+    </figure>
+</div>
+</body>
+<script>
+const previousButton = document.getElementById("prev");
+const nextButton = document.getElementById("next");
+const content = document.getElementById("content");
+const textList = ["First Slide", "Second Slide", "Third Slide"];
+const dropdown = document.getElementById("dropdown");
+const dropContent = document.getElementById("drop-content");
+
+var currentSlide = 0;
+
+previousButton.addEventListener("click", () => {
+    if (currentSlide > 0) {
+        currentSlide = currentSlide -1;
+        content.innerText = textList[currentSlide];
+    }
+    console.log("CLICKED PREVIOUS BUTTON");
+})
+
+nextButton.addEventListener("click", () => {
+    if (currentSlide < textList.length - 1) {
+        currentSlide = currentSlide + 1;
+        content.innerText = textList[currentSlide];
+    }
+    console.log("CLICKED NEXT BUTTON");
+})
+
+dropdown.addEventListener("click", () => {
+    dropContent.classList.toggle("hidden")
+
+})
+</script>
